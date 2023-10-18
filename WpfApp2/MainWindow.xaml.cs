@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows;
@@ -46,7 +46,9 @@ namespace AnagramChecker
             IsFirstWordValid = !string.IsNullOrWhiteSpace(firstWord);
             IsSecondWordValid = !string.IsNullOrWhiteSpace(secondWord);
 
-        private void CheckAnagrams_Click(object sender, RoutedEventArgs e)
+        }
+
+        private void CheckAnagrams_Click1(object sender, RoutedEventArgs e)
         {
             string firstWord = firstWordTextBox.Text;
             string secondWord = secondWordTextBox.Text;
