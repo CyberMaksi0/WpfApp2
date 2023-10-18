@@ -46,12 +46,20 @@ namespace AnagramChecker
             IsFirstWordValid = !string.IsNullOrWhiteSpace(firstWord);
             IsSecondWordValid = !string.IsNullOrWhiteSpace(secondWord);
 
+        private void CheckAnagrams_Click(object sender, RoutedEventArgs e)
+        {
+            string firstWord = firstWordTextBox.Text;
+            string secondWord = secondWordTextBox.Text;
+
+            IsFirstWordValid = !string.IsNullOrWhiteSpace(firstWord);
+            IsSecondWordValid = !string.IsNullOrWhiteSpace(secondWord);
+
             if (IsFirstWordValid && IsSecondWordValid)
             {
-                string sortedFirstWord = new string(firstWord.ToCharArray().OrderBy(c => c).ToArray());
-                string sortedSecondWord = new string(secondWord.ToCharArray().OrderBy(c => c).ToArray());
+                string sortedFirstWord = new string(firstWord.ToLower().ToCharArray().OrderBy(c => c).ToArray());
+                string sortedSecondWord = new string(secondWord.ToLower().ToCharArray().OrderBy(c => c).ToArray());
 
-                if (sortedFirstWord.Equals(sortedSecondWord, StringComparison.OrdinalIgnoreCase))
+                if (sortedFirstWord.Equals(sortedSecondWord, StringComparison.Ordinal))
                 {
                     resultTextBlock.Text = "Słowa są anagramami!";
                 }
