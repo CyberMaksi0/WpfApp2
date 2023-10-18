@@ -1,0 +1,60 @@
+﻿<Window x:Class="AnagramChecker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Anagramy" Height="300" Width="400">
+    <Window.Resources>
+        <Style x:Key="HighlightOnHover" TargetType="TextBlock">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="Green"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Anagramy" FontSize="20" TextAlignment="Center" VerticalAlignment="Center"
+                   Background="Yellow" Style="{StaticResource HighlightOnHover}" Grid.Row="0"/>
+        
+        <TextBlock Text="Pierwsze słowo:" TextAlignment="Center" Foreground="red" VerticalAlignment="Center" Margin="5" Grid.Row="1"/>
+        <TextBox Name="firstWordTextBox" VerticalAlignment="Center" Margin="28, 0, 28, 0" Grid.Row="2">
+            <TextBox.Style>
+                <Style TargetType="TextBox">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsFirstWordValid}" Value="False">
+                            <Setter Property="BorderBrush" Value="Red"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
+
+        <TextBlock Text="Drugie słowo:" TextAlignment="Center" Foreground="red" VerticalAlignment="Center" Margin="5" Grid.Row="3"/>
+        <TextBox Name="secondWordTextBox" VerticalAlignment="Center" Margin="28, 0, 28, 10" Grid.Row="4">
+            <TextBox.Style>
+                <Style TargetType="TextBox">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsSecondWordValid}" Value="False">
+                            <Setter Property="BorderBrush" Value="Red"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
+
+        <Button Content="Sprawdź" VerticalAlignment="Center" Background="Khaki" Foreground="red" Margin="28, 0, 28, 0" Grid.Row="6" Click="CheckAnagrams_Click"/>
+
+        <TextBlock Name="resultTextBlock" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" Grid.Row="8"/>
+    </Grid>
+</Window>
+    
+<!--Autorski pomysł na kodzik do Maksia-->
